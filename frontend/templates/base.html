@@ -1,0 +1,117 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="Aled">
+    <link rel="icon" href="../../favicon.ico">
+ 	  
+<!-- Add the nav bar with login -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header"><a class="navbar-brand" href="/welcome/">Primer Database</a>
+        </div>
+        {% if user.is_authenticated %}
+        <div>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active"><p class="navbar-brand">Welcome {{user.get_username}}</p></li>
+            <li class="active"><p class="navbar-brand"><a href="/logout/">logout</a> </p></li>  
+          </ul>
+        </div>
+        {% else %}
+        <div>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active"><p class="navbar-brand">User is not logged in </p></li>
+            <li class="active"><p class="navbar-brand"><a href="/login/">Login</a> </p></li>  
+          </ul>
+        </div>
+        {% endif %}
+      </div>
+    </nav>
+{% if user.is_authenticated %}
+<div class="container">
+      <div class="masthead">
+        <br>
+        <br>
+        <br>
+        <nav>
+          <ul class="nav nav-justified">
+            <li class="active"><a href="/welcome/">Home</a></li>
+            <li><a href="/find_primer_design/">Find Primer Design</a></li>
+            <li><a href="/find_amplicon_design/">Find Amplicon</a></li>
+            <li><a href="/add_primer_design_wizard/">Add New Primer Design</a></li>
+            <li><a href="/add_amplicon_design/">Add New Amplicons</a></li>
+            <!-- <li><a href="#">View audit trail</a></li>
+            <li><a href="#">Add audit info</a></li> -->
+          </ul>
+        </nav>
+      </div>
+      </div>
+      {% endif %}
+</head>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <!-- <link href="../../dist/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" type="text/css" href="{% static 'frontend/css/bootstrap.min.css' %}" />
+
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{%static 'frontend/css/justified-nav.css' %}" rel="stylesheet">
+    <link href="{%static 'frontend/css/jumbotron.css' %}" rel="stylesheet">
+    <link href="{%static 'frontend/css/signin.css' %}" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+
+
+    {% block title %} 
+    {% endblock %} 
+    {% block content %}
+    {% endblock %}
+
+<!-- {% if full_name != None %} 
+  <body>
+    <div class="container">
+      <div class="masthead">
+        <br>
+        <br>
+        <br>
+        <nav>
+          <ul class="nav nav-justified">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">Primer Design</a></li>
+            <li><a href="#">Amplicons</a></li>
+            <li><a href="#">Add Primer design</a></li>
+            <li><a href="#">Add Amplicon</a></li>
+            <li><a href="#">View audit trail</a></li>
+            <li><a href="#">Add audit info</a></li>
+          </ul>
+        </nav>
+      </div>
+      </div>
+</body> 
+{% endif %}  -->
+
+
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+</html>

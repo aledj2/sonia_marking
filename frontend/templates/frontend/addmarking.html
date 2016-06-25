@@ -3,25 +3,34 @@
 <!-- Import static -->
 <!-- {% load staticfiles %} -->
     {% block title %}
-    
-    <div class= "container-fluid">
-    	<div class="well well-sm"><center><h2>Select Class</h2></center></div>
-	</div>
-	
     {% endblock %} 
 {% block content %}
-    <div class= "container-fluid">
+<div class="container">
+  <h2>{{classname.classname}}</h2><p>Books marked more than 4 weeks ago ({{cutoff}}) are red</p>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Student name</th>
+        <th>Date last Marked</th>
+      </tr>
+    </thead>
+    <tbody>
+    {%  for i in expiredStudents %}
+<!--     .active, .success, .info, .warning, and .danger. -->
+      <tr class="danger">
+        <td>{{i.studentname}}</td>
+        <td>{{i.datemarked}}</td></tr>
+    {% endfor %}
     
-{% for i in classes %}
-  <div class="col-sm-4">
-    <div class="thumbnail">
-<!--     <div class="well well-sm"><center><h4>{{i.classname}}</h4></center></div> -->
-    <a href="/add_marking/{{i.idclasses}}" style="width:99%" class="btn btn-primary btn-lg" role="button">{{i.classname}}</a>
-<!--     <a href="/add_marking/{{i.idclasses}}" style="width:49%" class="btn btn-default btn-lg" role="button">View Marking</a> -->
-      </div>
-      </div>
-      {% endfor %}
-    </div>
+    {%  for i in ok_students %}
+      <tr class="info">
+        <td>{{i.studentname}}</td>
+        <td>{{i.datemarked}}</td></tr>
+    {% endfor %}        
+    </tbody>
+  </table>
+</div>
+
 
 
 {% endblock %}

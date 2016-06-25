@@ -28,6 +28,7 @@ class Students(models.Model):
     idstudent =  models.AutoField(db_column='idStudents', primary_key=True)
     studentname = models.CharField(db_column='StudentName', max_length=45)
     idclass = models.IntegerField(db_column='idClass')
+    datemarked = models.DateField(db_column='DateMarked',auto_now=False, auto_now_add=True)
     
     def classname(self):
         return Classes.objects.get(idclasses=self.idclass)

@@ -11,7 +11,15 @@
     <thead>
       <tr>
         <th>Student name</th>
-        <th>Date last Marked</th>
+        <th>Add new progress</th>
+        <th>Most recent progress</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th>Oldest progress</th>
       </tr>
     </thead>
     <tbody>
@@ -19,14 +27,34 @@
 <!--     .active, .success, .info, .warning, and .danger. -->
       <tr class="danger">
         <td>{{i.studentname}}</td>
-        <td>{{i.datemarked}}</td></tr>
+        <td>{{form.Add_progress}}
+        <input type="submit" value="Submit" />
+        </td>
+        <td><p>{{i.datemarkedprogress_text.progress_text}}</p><p>{% if i.datemarked != none %}{{i.datemarked}}{% endif %}</p></td>
+        <td><p>{{i.progress1_text.progress_text}}</p><p>{% if i.progress1_date != none %}{{i.progress1_date}}{% endif %}</p></td>
+        <td><p>{{i.progress2_text.progress_text}}</p><p>{% if i.progress2_date != none %}{{i.progress2_date}}{% endif %}</p></td>
+        <td><p>{{i.progress3_text.progress_text}}</p><p>{% if i.progress3_date != none %}{{i.progress3_date}}{% endif %}</p></td>
+        <td><p>{{i.progress4_text.progress_text}}</p><p>{% if i.progress4_date != none %}{{i.progress4_date}}{% endif %}</p></td>
+        <td><p>{{i.progress5_text.progress_text}}</p><p>{% if i.progress5_date != none %}{{i.progress5_date}}{% endif %}</p></td>
+        <td><p>{{i.progress6_text.progress_text}}</p><p>{% if i.progress6_date != none %}{{i.progress6_date}}{% endif %}</p></td>
+        <td><p>{{i.progress7_text.progress_text}}</p><p>{% if i.progress7_date != none %}{{i.progress7_date}}{% endif %}</p></td>
+        </tr>
     {% endfor %}
-    
     {%  for i in ok_students %}
       <tr class="info">
         <td>{{i.studentname}}</td>
-        <td>{{i.datemarked}}</td></tr>
-    {% endfor %}        
+        <td>{{form.Add_progress}}
+        <input type="submit" value="Submit" /></td>
+        <td><p>{{i.datemarkedprogress_text.progress_text}}</p><p>{% if i.datemarked != none %}{{i.datemarked}}{% endif %}</p></td>
+        <td><p>{{i.progress1_text.progress_text}}</p><p>{% if i.progress1_date != none %}{{i.progress1_date}}{% endif %}</p></td>
+        <td><p>{{i.progress2_text.progress_text}}</p><p>{% if i.progress2_date != none %}{{i.progress2_date}}{% endif %}</p></td>
+        <td><p>{{i.progress3_text.progress_text}}</p><p>{% if i.progress3_date != none %}{{i.progress3_date}}{% endif %}</p></td>
+        <td><p>{{i.progress4_text.progress_text}}</p><p>{% if i.progress4_date != none %}{{i.progress4_date}}{% endif %}</p></td>
+        <td><p>{{i.progress5_text.progress_text}}</p><p>{% if i.progress5_date != none %}{{i.progress5_date}}{% endif %}</p></td>
+        <td><p>{{i.progress6_text.progress_text}}</p><p>{% if i.progress6_date != none %}{{i.progress6_date}}{% endif %}</p></td>
+        <td><p>{{i.progress7_text.progress_text}}</p><p>{% if i.progress7_date != none %}{{i.progress7_date}}{% endif %}</p></td>
+ 		</tr>
+    {% endfor %}       
     </tbody>
   </table>
 </div>

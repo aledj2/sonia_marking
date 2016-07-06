@@ -12,9 +12,10 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+from django.conf.global_settings import STATIC_ROOT
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+STATICFILES_DIR = (os.path.join(BASE_DIR, "frontend/static"))#,os.path.join(BASE_DIR, "static"))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
@@ -77,8 +78,12 @@ WSGI_APPLICATION = 'Sonia_marking.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'sonia_marking.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'SoniaMarking',
+        'USER': 'root',
+        'PASSWORD': 'mysql',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
     }
 }
 
@@ -101,3 +106,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = 'frontend/static/'
+STATIC_ROOT='/var/www/SoniaMarking/static'

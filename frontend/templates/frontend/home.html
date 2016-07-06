@@ -24,6 +24,29 @@
     </div>
 
 
+<div class= "container-fluid">
+    	<div class="well well-sm"><center><h2>Books not marked in last 30 days</h2></center></div>
+	
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Student name</th>
+        <th>Date last Marked</th>
+        <th>Class</th
+      </tr>
+    </thead>
+    <tbody>
+    {%  for i in expiredStudents %}
+<!--     .active, .success, .info, .warning, and .danger. -->
+      <tr class="danger">
+        <td>{{i.studentname}}</td>
+        <td>{{i.datemarked}}</td>
+        <td>{{i.classname.classname}}</td></tr>
+        
+    {% endfor %}
+    </tbody></table></div>
+
+
 {% endblock %}
  
 <!-- Bootstrap core JavaScript

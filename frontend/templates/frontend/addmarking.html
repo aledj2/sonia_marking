@@ -13,12 +13,12 @@
         <th>Student name</th>
         <th>Add new progress</th>
         <th>Most recent progress</th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
+        <th>------></th>
+        <th>------></th>
+        <th>------></th>
+        <th>------></th>
+        <th>------></th>
+        <th>------></th>
         <th>Oldest progress</th>
       </tr>
     </thead>
@@ -27,8 +27,12 @@
 <!--     .active, .success, .info, .warning, and .danger. -->
       <tr class="danger">
         <td>{{i.studentname}}</td>
-        <td>{{form.Add_progress}}
-        <input type="submit" value="Submit" />
+        <td>
+        <form method="POST" action="">
+        {% csrf_token %}
+        {{ form.Add_progress }}
+        <input type="submit" value="Submit Mark"/>
+    </form>
         </td>
         <td><p>{{i.datemarkedprogress_text.progress_text}}</p><p>{% if i.datemarked != none %}{{i.datemarked}}{% endif %}</p></td>
         <td><p>{{i.progress1_text.progress_text}}</p><p>{% if i.progress1_date != none %}{{i.progress1_date}}{% endif %}</p></td>
@@ -43,8 +47,12 @@
     {%  for i in ok_students %}
       <tr class="info">
         <td>{{i.studentname}}</td>
-        <td>{{form.Add_progress}}
-        <input type="submit" value="Submit" /></td>
+        <td>
+        <form method="POST" action="">
+        {% csrf_token %}
+        {{ form.Add_progress }}
+        <input type="submit" value="Submit Mark"/>
+    </form></td>
         <td><p>{{i.datemarkedprogress_text.progress_text}}</p><p>{% if i.datemarked != none %}{{i.datemarked}}{% endif %}</p></td>
         <td><p>{{i.progress1_text.progress_text}}</p><p>{% if i.progress1_date != none %}{{i.progress1_date}}{% endif %}</p></td>
         <td><p>{{i.progress2_text.progress_text}}</p><p>{% if i.progress2_date != none %}{{i.progress2_date}}{% endif %}</p></td>

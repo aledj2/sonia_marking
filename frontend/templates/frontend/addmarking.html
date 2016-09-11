@@ -28,11 +28,12 @@
       <tr class="danger">
         <td>{{i.studentname}}</td>
         <td>
-        <form method="POST" action="">
-        {% csrf_token %}
-        {{ form.Add_progress }}
-        <input type="submit" value="Submit Mark"/>
-    </form>
+        <!-- <form method="POST" action=""> -->
+        <!--{% csrf_token %} -->
+        <!--{{ form.Add_progress }}-->
+        <!--<input type="submit" value="Add mark"  />-->
+    	<!--</form>-->
+    	<a href="/markbook/{{i.idstudent}}" style="width:99%" class="btn btn-primary btn-lg" role="button">Add mark</a>
         </td>
         <td><p>{{i.datemarkedprogress_text.progress_text}}</p><p>{% if i.datemarked != none %}{{i.datemarked}}{% endif %}</p></td>
         <td><p>{{i.progress1_text.progress_text}}</p><p>{% if i.progress1_date != none %}{{i.progress1_date}}{% endif %}</p></td>
@@ -48,11 +49,13 @@
       <tr class="info">
         <td>{{i.studentname}}</td>
         <td>
-        <form method="POST" action="">
-        {% csrf_token %}
-        {{ form.Add_progress }}
-        <input type="submit" value="Submit Mark"/>
-    </form></td>
+        <!-- <form method="POST" action=""> -->
+        <!--{% csrf_token %} -->
+        <!--{{ form.Add_progress }}-->
+        <!--<input type="submit" value="Add mark"  />-->
+    	<!--</form>-->
+    	<a href="/markbook/{{i.idstudent}}" style="width:99%" class="btn btn-primary btn-lg" role="button">Add mark</a>
+    	</td>
         <td><p>{{i.datemarkedprogress_text.progress_text}}</p><p>{% if i.datemarked != none %}{{i.datemarked}}{% endif %}</p></td>
         <td><p>{{i.progress1_text.progress_text}}</p><p>{% if i.progress1_date != none %}{{i.progress1_date}}{% endif %}</p></td>
         <td><p>{{i.progress2_text.progress_text}}</p><p>{% if i.progress2_date != none %}{{i.progress2_date}}{% endif %}</p></td>

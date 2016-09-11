@@ -1,0 +1,44 @@
+<!--extends base -->
+{% extends "base.html" %}
+<!-- Import static -->
+<!-- {% load staticfiles %} -->
+    {% block title %}
+    {% endblock %} 
+{% block content %}
+<div class="container">
+<h2>Add a grade </h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Student name</th>
+        <th>Add new progress</th>
+      </tr>
+    </thead>
+    <tbody>
+    {%  for i in student %}
+    <tr>
+    <td>{{i.studentname}}</td>
+    <td>
+        <form method="POST" action="/markbook/{{i.idstudent}}/">
+        {% csrf_token %}
+        {{ form.Add_progress }}</td>
+        <td>
+        <input type="submit" value="Add mark"  />
+    	</form>
+         </td></tr>
+            {% endfor %}       
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}
+ 
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+<script src="../../dist/js/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+
